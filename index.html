@@ -22,8 +22,10 @@
             color: var(--cor-texto);
             overflow: hidden;
         }
-
+        
+        /* Adicionando um cursor para indicar que a tela é clicável (opcional, mas útil) */
         .tela {
+            cursor: pointer; 
             height: 100vh;
             width: 100%;
             display: flex;
@@ -41,6 +43,11 @@
             pointer-events: none;
             z-index: 10;
         }
+        
+        /* Remove o cursor de clique na tela que tem botão, para não confundir */
+        #tela1-5 {
+            cursor: default; 
+        }
 
         .tela.ativa {
             opacity: 1;
@@ -51,7 +58,6 @@
         .gif-container {
             width: 90%;
             max-width: 400px;
-            /* Espaçamento ajustado */
             margin-bottom: 15px; 
             border: 5px solid var(--cor-texto);
             border-radius: 15px;
@@ -71,7 +77,7 @@
             line-height: 1.1;
         }
 
-        /* FONTES REDUZIDAS PARA MOBILE (da sua última instrução) */
+        /* FONTES REDUZIDAS PARA MOBILE */
         h1 {
             font-size: 1.8em; 
         }
@@ -272,14 +278,14 @@
         const tela1 = document.getElementById('tela1');
         const tela1_5 = document.getElementById('tela1-5');
         
-        // Função para avançar da Tela 1 para a 1.5 (mantida)
+        // Função para avançar da Tela 1 para a 1.5
         function avancarTela1() {
             tela1.classList.remove('ativa');
             tela1_5.classList.add('ativa');
-            tela1.onclick = null;
+            tela1.onclick = null; // Desativa o clique da tela 1 para que ela não possa ser reativada por acidente
         }
 
-        // Função genérica para avançar para a próxima tela (usada em todas as telas)
+        // Função genérica para avançar para a próxima tela
         function irParaTela(numeroTela) {
             const telas = document.querySelectorAll('.tela');
             
@@ -293,8 +299,10 @@
             }
         }
         
-        // Impede que a última tela (Tela 9) avance, mesmo que tenha o onclick na div
-        document.getElementById('tela9').onclick = function() {};
+        // Impede que a última tela (Tela 9) avance ao ser clicada
+        document.getElementById('tela9').onclick = function(event) {
+             // Opcional: Se a Tela 9 for clicada, não faz nada (não avança)
+        };
     </script>
 </body>
 </html>
