@@ -51,7 +51,8 @@
         .gif-container {
             width: 90%;
             max-width: 400px;
-            margin-bottom: 30px;
+            /* Reduzido de 30px para 15px */
+            margin-bottom: 15px; 
             border: 5px solid var(--cor-texto);
             border-radius: 15px;
             overflow: hidden;
@@ -66,13 +67,22 @@
 
         h1, h2 {
             text-shadow: 3px 3px 0 var(--cor-sombra);
-            margin: 10px 0;
-            font-size: 2.5em;
+            margin: 8px 0; /* Reduzido de 10px para 8px */
             line-height: 1.1;
+        }
+
+        /* Redução de fonte para telas menores */
+        h1 {
+            font-size: 2.2em; /* Reduzido de 2.5em para 2.2em */
         }
         
         h2 {
-            font-size: 1.8em;
+            font-size: 1.6em; /* Reduzido de 1.8em para 1.6em */
+        }
+
+        /* Ajuste específico para garantir que a tela mais densa (Tela 8) caiba */
+        #tela8 h1 {
+            font-size: 1.8em; 
         }
 
         .btn-acao {
@@ -94,7 +104,7 @@
             transform: translateY(3px);
         }
 
-        /* Confetes */
+        /* Confetes (Sem alterações) */
         .confetti-container {
             position: fixed;
             top: 0;
@@ -148,8 +158,11 @@
         .confetti:nth-child(20) { left: 42%; animation-duration: 5s; animation-delay: -4s; }
 
 
+        /* Manter fontes grandes para telas maiores (desktop/tablet) */
         @media (min-width: 600px) {
             h1 { font-size: 3.5em; }
+            h2 { font-size: 2.5em; }
+            #tela8 h1 { font-size: 3em; }
             .btn-acao { padding: 18px 40px; font-size: 1.4em; }
         }
 
